@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITS Maker – Digital Automation Maker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f7fb;
+color:#1c1c1c;
+line-height:1.7
+}
+
+/* TOP */
+.funding{
+background:#eef2f7;
+padding:8px;
+border-bottom:1px solid #ccc;
+text-align:center
+}
+.funding img{max-height:34px}
+
+/* NAVBAR */
+.nav{
+position:sticky;
+top:0;
+background:#fff;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s
+}
+.nav.shrink{padding:5px 0}
+
+.nav-inner{
+max-width:1300px;
+margin:auto;
+padding:22px;
+display:flex;
+justify-content:center;
+transition:.3s
+}
+.nav.shrink .nav-inner{padding:10px}
+
+.nav-center{
+display:flex;
+align-items:center;
+gap:80px
+}
+
+.nav-logo img{
+max-height:90px;
+transition:.3s
+}
+.nav.shrink .nav-logo img{max-height:65px}
+
+.nav-links{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+justify-content:center;
+}
+.nav-links a{
+background:linear-gradient(135deg,#0073c6,#00b3ff);
+color:#fff;
+padding:14px 30px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s
+}
+.nav-links a:hover{transform:scale(1.1)}
+
+/* HERO */
+header{
+min-height:60vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://media.giphy.com/media/26BRrSvJUa0crqw4E/giphy.gif");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+text-align:center
+}
+
+.hero-box{
+max-width:900px;
+padding:50px;
+}
+
+header h1{
+font-size:3.5em;
+margin-bottom:20px;
+font-weight:800;
+text-shadow:0 5px 15px rgba(0,0,0,.8)
+}
+
+header p {
+  font-size: 1.2em;
+  text-shadow: none; /* rimuove l'ombra */
+}
+
+/* SEZIONI */
+section{
+max-width:1300px;
+margin:auto;
+padding:100px 25px
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px
+}
+.section-title h2{
+font-size:3em;
+color:#004b8d
+}
+
+/* ABOUT */
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center
+}
+.about img{
+width:100%;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.3)
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px
+}
+.card{
+background:#fff;
+padding:40px;
+border-radius:25px;
+box-shadow:0 12px 30px rgba(0,0,0,.15);
+transition:.3s
+}
+.card:hover{transform:translateY(-12px)}
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:18px;
+margin-bottom:20px
+}
+.card h3{
+color:#004b8d;
+margin-bottom:15px
+}
+
+/* SBOCCHI + AZIENDE */
+.sbocchi-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:start;
+}
+
+.sbocchi-left{
+background:linear-gradient(135deg,#003c6a,#0073c6,#00b3ff);
+color:#fff;
+border-radius:30px;
+padding:45px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.sbocchi-left img{
+width:100%;
+border-radius:20px;
+margin-top:15px;
+}
+
+.sbocchi-right{
+background:#ffffff;
+border-radius:30px;
+padding:50px 40px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.sbocchi-right h3{
+text-align:center;
+margin-bottom:40px;
+font-size:1.8em;
+color:#004b8d;
+}
+
+.loghi-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:25px;
+align-items:center;
+}
+
+.loghi-grid img{
+width:100%;
+max-height:32px;
+object-fit:contain;
+transition:.3s;
+}
+
+.loghi-grid img:hover{
+transform:scale(1.08);
+}
+
+/* TESTIMONIANZE */
+.testimonial{
+display:grid;
+grid-template-columns:1.2fr 1fr;
+gap:80px;
+align-items:center
+}
+
+.video-box{
+background:linear-gradient(135deg,#003c6a,#0073c6,#00b3ff);
+padding:50px;
+border-radius:40px;
+box-shadow:0 20px 45px rgba(0,0,0,.3);
+display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+gap:40px;
+}
+
+.video-wrapper{
+width:260px;
+aspect-ratio:9/16;
+overflow:hidden;
+border-radius:25px;
+background:#000;
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+flex-shrink:0;
+}
+
+.video-wrapper video{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.testo-testimonianze{
+font-size:1.1em;
+line-height:1.8;
+}
+
+.testo-testimonianze a{
+display:inline-block;
+margin-top:25px;
+color:#0073c6;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+}
+
+.testo-testimonianze a:hover{
+transform:translateX(5px);
+text-decoration:underline;
+}
+
+/* CTA */
+.cta{
+background:linear-gradient(135deg,#0073c6,#00b3ff);
+color:#fff;
+border-radius:40px;
+padding:90px 40px;
+text-align:center;
+box-shadow:0 20px 45px rgba(0,0,0,.3);
+margin-bottom:140px
+}
+
+.cta a{
+background:#fff;
+color:#0073c6;
+padding:16px 45px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+display:inline-block;
+margin-top:30px;
+transition:.3s;
+}
+
+.cta a:hover{
+transform:scale(1.1);
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* FOOTER */
+footer{
+background:#0a0a0a;
+color:#fff;
+padding:35px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.footer-right{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.footer-left img{max-height:45px}
+.footer-logo img{max-height:70px}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+.about,.testimonial,.sbocchi-wrapper{
+grid-template-columns:1fr
+}
+.loghi-grid{
+grid-template-columns:repeat(3,1fr);
+}
+.video-box{
+flex-wrap:wrap;
+}
+}
+
+@media(max-width:600px){
+.video-box{
+flex-direction:column;
+}
+}
+</style>
+</head>
+
+<body id="top">
+
+<div class="funding">
+<img src="BannerSponsor.jpg">
+</div>
+
+<div class="nav" id="navbar">
+<div class="nav-inner">
+<div class="nav-center">
+<div class="nav-logo">
+<a href="#top"><img src="LogoITS.png"></a>
+</div>
+<div class="nav-links">
+<a href="#corso">Corso</a>
+<a href="#competenze">Competenze</a>
+<a href="#sbocchi">Sbocchi</a>
+<a href="#testimonianze">Testimonianze</a>
+<a href="#iscrizioni">Iscrizioni</a>
+</div>
+</div>
+</div>
+</div>
+
+<header>
+<div class="hero-box">
+<h1>Digital Automation Maker</h1>
+<p>
+Diventa protagonista della trasformazione digitale industriale.<br>
+Il Digital Automation Maker è un percorso biennale post-diploma altamente professionalizzante,
+progettato in collaborazione con aziende leader del settore.
+Unisce automazione, software e industria 4.0 per formare tecnici specializzati,
+pronti ad entrare rapidamente nel mondo del lavoro.
+</p>
+</div>
+</header>
+
+<section id="corso">
+<div class="section-title">
+<h2>Cos’è il Digital Automation Maker</h2>
+</div>
+<div class="about">
+<div>
+<p>
+Il percorso Digital Automation Maker nasce per rispondere alle esigenze concrete
+delle aziende manifatturiere e tecnologiche.
+Integra lezioni teoriche, laboratori pratici e un lungo periodo di stage in impresa,
+con l’obiettivo di formare professionisti altamente qualificati
+nell’automazione industriale e nei sistemi digitali avanzati.
+<br><br>
+Le competenze acquisite sono immediatamente spendibili nel mondo del lavoro.
+</p>
+</div>
+<img src="https://itsmaker.it/wp-content/uploads/2023/09/ITSMAKER-TecnicoDiAutomazione-4.jpg">
+</div>
+</section>
+
+<section id="competenze">
+<div class="section-title">
+<h2>Cosa Imparerai</h2>
+</div>
+<div class="cards">
+
+<div class="card">
+<img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif">
+<h3>Automazione Industriale</h3>
+<p>
+Imparerai a progettare e gestire linee produttive automatizzate,
+configurare sistemi di controllo e intervenire nella manutenzione avanzata
+degli impianti industriali.
+</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
+<h3>Software & AI</h3>
+<p>
+Dalla programmazione alla gestione dei dati industriali,
+fino all’integrazione di soluzioni smart basate su Intelligenza Artificiale.
+</p>
+</div>
+
+<div class="card">
+<img src="https://www.alcimed.com/wp-content/uploads/2025/03/industry_4_0_min-1.webp">
+<h3>Industria 4.0</h3>
+<p>
+Imparerai a integrare macchine, software e sistemi intelligenti
+in un ecosistema connesso, sicuro ed efficiente.
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="sbocchi">
+<div class="sbocchi-wrapper">
+
+<div class="sbocchi-left">
+<h2>Opportunità di Lavoro</h2>
+<p>
+Oltre l’80% dei diplomati ITS trova occupazione entro un anno dal termine del percorso.
+Le aziende partner partecipano attivamente alla formazione e selezionano direttamente
+gli studenti durante lo stage, offrendo concrete opportunità di inserimento
+in ruoli tecnici altamente qualificati.
+</p>
+<img src="https://itsmaker.it/wp-content/uploads/2023/09/ITSMAKER-TecnicoDiAutomazione-4.jpg">
+</div>
+
+<div class="sbocchi-right">
+<h3>Aziende Partner</h3>
+<div class="loghi-grid">
+
+<!-- TUTTI I LOGHI INSERITI -->
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-AEB-300x150.jpg" alt="AEB">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-AreteeECocchi-300x150.jpg" alt="Aretè & Cocchi Tecnhology">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-ARGOTractors-300x150.jpg" alt="Argo Tractors">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-AutomobiliLamborghini-300x150.jpg" alt="Lamborghini">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Bucher-300x150.jpg" alt="Bucher">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Caprari-300x150.jpg" alt="Caprari">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Casarini-300x150.jpg" alt="Casarini">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-CBM-300x150.jpg" alt="CBM Group">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Clevertech-300x150.jpg" alt="Clevertech">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-GruppoCMS-300x150.jpg" alt="Gruppo CMS">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-CNH-300x150.jpg" alt="CNH">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-ComerIndustries-300x150.jpg" alt="Comer Industries">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Corghi-300x150.jpg" alt="Corghi">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Dallara-300x150.jpg" alt="Dallara">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-E80-300x150.jpg" alt="E80">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Tironi-300x150.jpg" alt="Tironi">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Ferrari_CavallinoRampante-300x150.jpg" alt="Ferrari">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-GalvanicaNobili-300x150.jpg" alt="Galvanica Nobili">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-GD-300x150.jpg" alt="GD">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-HPE_Group-300x150.jpg" alt="HPE Group">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-IMA-300x150.jpg" alt="IMA">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-IST-300x150.jpg" alt="IST">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Kohler-300x150.jpg" alt="Kohler">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Lodi-300x150.jpg" alt="LODI">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Logit-300x150.jpg" alt="Logit">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Marelli-300x150.jpg" alt="Marelli">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Malagoli-300x150.jpg" alt="Aldebrando Malagoli">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-MarchesiniGroup-300x150.jpg" alt="Marchesini Group">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Margen-300x150.jpg" alt="Margen">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Maserati-300x150.jpg" alt="Maserati">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-MASS-300x150.jpg" alt="MASS">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Nexxta-300x150.jpg" alt="NEXXTA">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-OgnibenePower-300x150.jpg" alt="Ognibene Power">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Qonsult-300x150.jpg" alt="Qonsult">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-ReggianaRiduttori-300x150.jpg" alt="Reggiana Riduttori">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-ReggioEmiliaInnovazione-300x150.jpg" alt="Reggio Emilia Innovazione">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-SEI-300x150.jpg" alt="SEI">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Sacmi-300x150.jpg" alt="SACMI">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Salami-300x150.jpg" alt="Salami">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-SCE-300x150.jpg" alt="SCE">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Schneider-300x150.jpg" alt="Schneider Electric">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-TEC_Eurolab-300x150.jpg" alt="TEC Eurolab">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-TellureRota-300x150.jpg" alt="TellureRota">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-TMC-300x150.jpg" alt="TMC">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Walvoil-300x150.jpg" alt="Walvoil">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-VM_Motori-300x150.jpg" alt="VM Motori">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-MG2-300x150.jpg" alt="MG2">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Protesa-300x150.jpg" alt="Protesa">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Arag-300x150.jpg" alt="Arag">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Borghi-300x150.jpg" alt="Borghi">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-FamarTec-300x150.jpg" alt="FarmTec">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Fogliani-300x150.jpg" alt="Fogliani">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-GrafosSteel-300x150.jpg" alt="GrafosSteel">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Infomotion-300x150.jpg" alt="Infomotion">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Poggipolini-300x150.jpg" alt="Poggipolini">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Viabizzuno-300x150.jpg" alt="Viabizzuno">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Nuovamacut-300x150.jpg" alt="Nuovamacut">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Pagani-300x150.jpg" alt="Pagani">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-Seipee-300x150.jpg" alt="Seipee">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-TemaSinergie-300x150.jpg" alt="TEMA SINERGIE">
+<img src="https://itsmaker.it/wp-content/uploads/2025/09/ITSMAKER-Soci-ViciEC-300x150.jpg" alt="ViciEC">
+
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="testimonianze">
+<div class="section-title">
+<h2>Cosa dicono di noi</h2>
+<p>Esperienze reali di studenti ed ex studenti.</p>
+</div>
+
+<div class="testimonial">
+
+<div class="video-box">
+<div class="video-wrapper">
+<video controls src="video1.mp4"></video>
+</div>
+<div class="video-wrapper">
+<video controls src="video2.mp4"></video>
+</div>
+</div>
+
+<div class="testo-testimonianze">
+<p>
+Le testimonianze raccontano un percorso concreto,
+formativo e orientato al lavoro.
+</p>
+<a href="https://itsmaker.it/">Scopri di più →</a>
+</div>
+
+</div>
+</section>
+
+<section id="iscrizioni" class="cta">
+<h2>Costruisci il Tuo Futuro Oggi</h2>
+<p>Il momento giusto è adesso.</p>
+<a href="https://itsmaker.it/guida-pratica/">
+Invia Richiesta
+</a>
+</section>
+
+<footer>
+<div class="footer-left">
+<a href="https://itsmaker.it/" style="color:#fff;text-decoration:none;display:flex;align-items:center;gap:15px;">
+<img src="LogoITS.png">
+<div>© 2026 ITS Maker – Digital Automation Maker</div>
+</a>
+</div>
+
+<div class="footer-right">
+<div>© 2026 Maker Future – Da decidere</div>
+<div class="footer-logo">
+<img src="logo digital.png">
+</div>
+</div>
+</footer>
+
+<script>
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+window.scrollY > 80
+? navbar.classList.add("shrink")
+: navbar.classList.remove("shrink");
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+link.addEventListener("click", e => {
+const href = link.getAttribute("href");
+if (!href.startsWith("#")) return;
+const target = document.querySelector(href);
+if (!target) return;
+e.preventDefault();
+const offset = navbar.offsetHeight + 20;
+window.scrollTo({
+top: target.offsetTop - offset,
+behavior: "smooth"
+});
+});
+});
+</script>
+
+</body>
+</html>

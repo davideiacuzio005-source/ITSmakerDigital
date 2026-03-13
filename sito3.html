@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ITS Maker – Digital Automation Maker</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f4f7fb;
+color:#1c1c1c;
+line-height:1.7
+}
+
+/* TOP */
+.funding{
+background:#eef2f7;
+padding:8px;
+border-bottom:1px solid #ccc;
+text-align:center
+}
+.funding img{max-height:34px}
+
+/* NAVBAR */
+.nav{
+position:sticky;
+top:0;
+background:#fff;
+z-index:999;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s
+}
+.nav.shrink{padding:5px 0}
+
+.nav-inner{
+max-width:1300px;
+margin:auto;
+padding:22px;
+display:flex;
+justify-content:center;
+transition:.3s
+}
+.nav.shrink .nav-inner{padding:10px}
+
+.nav-center{
+display:flex;
+align-items:center;
+gap:80px
+}
+
+.nav-logo a{
+display:flex;
+align-items:center
+}
+.nav-logo img{
+max-height:90px;
+transition:.3s
+}
+.nav.shrink .nav-logo img{max-height:65px}
+
+.nav-links{
+display:flex;
+gap:25px
+}
+.nav-links a{
+background:linear-gradient(135deg,#0073c6,#00b3ff);
+color:#fff;
+padding:14px 30px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:.3s
+}
+.nav-links a:hover{transform:scale(1.1)}
+
+/* HERO */
+header{
+min-height:60vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://media.giphy.com/media/26BRrSvJUa0crqw4E/giphy.gif");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+color:#fff;
+text-align:center
+}
+
+.hero-box{
+max-width:900px;
+padding:50px;
+border-radius:35px
+}
+
+header h1{
+font-size:3.5em;
+margin-bottom:20px;
+font-weight:800;
+text-shadow:0 5px 15px rgba(0,0,0,.8)
+}
+
+header p{
+font-size:1.2em;
+text-shadow:0 3px 10px rgba(0,0,0,.8)
+}
+
+/* SEZIONI */
+section{
+max-width:1300px;
+margin:auto;
+padding:100px 25px
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px
+}
+.section-title h2{
+font-size:3em;
+color:#004b8d
+}
+.section-title p{
+max-width:900px;
+margin:auto;
+font-size:1.15em
+}
+
+/* ABOUT */
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center
+}
+.about img{
+width:100%;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.3)
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px
+}
+.card{
+background:#fff;
+padding:40px;
+border-radius:25px;
+box-shadow:0 12px 30px rgba(0,0,0,.15);
+transition:.3s
+}
+.card:hover{transform:translateY(-12px)}
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:18px;
+margin-bottom:20px
+}
+.card h3{
+color:#004b8d;
+margin-bottom:15px
+}
+
+/* HIGHLIGHT */
+.highlight{
+background:linear-gradient(135deg,#003c6a,#0073c6,#00b3ff);
+color:#fff;
+border-radius:40px;
+padding:90px 50px;
+text-align:center;
+box-shadow:0 20px 45px rgba(0,0,0,.3);
+margin-bottom:120px
+}
+
+/* CTA */
+.cta{
+background:linear-gradient(135deg,#0073c6,#00b3ff);
+color:#fff;
+border-radius:40px;
+padding:90px 40px;
+text-align:center;
+box-shadow:0 20px 45px rgba(0,0,0,.3);
+margin-bottom:140px
+}
+.cta a{
+display:inline-block;
+margin-top:30px;
+background:#fff;
+color:#0073c6;
+padding:16px 45px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:.3s
+}
+.cta a:hover{transform:scale(1.15)}
+
+/* FOOTER */
+footer{
+background:#0a0a0a;
+color:#fff;
+padding:35px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center
+}
+
+.footer-left a{
+display:flex;
+align-items:center;
+gap:15px;
+color:#fff;
+text-decoration:none
+}
+.footer-left img{max-height:45px}
+
+.footer-right{
+display:flex;
+align-items:center;
+gap:20px;
+text-align:right
+}
+.footer-text{
+font-size:.95em;
+line-height:1.4
+}
+.footer-text small{
+display:block;
+font-size:.75em;
+opacity:.8
+}
+.footer-logo img{max-height:70px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+.nav-center{flex-direction:column;gap:35px}
+header h1{font-size:2.4em}
+.about{grid-template-columns:1fr}
+footer{
+flex-direction:column;
+gap:25px;
+text-align:center
+}
+.footer-left,.footer-right{
+flex-direction:column;
+text-align:center
+}
+}
+</style>
+</head>
+
+<body id="top">
+
+<div class="funding">
+<img src="BannerSponsor.jpg">
+</div>
+
+<div class="nav" id="navbar">
+<div class="nav-inner">
+<div class="nav-center">
+
+<div class="nav-logo">
+<a href="#top">
+<img src="LogoITS.png">
+</a>
+</div>
+
+<div class="nav-links">
+<a href="#corso">Corso</a>
+<a href="#competenze">Competenze</a>
+<a href="#sbocchi">Sbocchi</a>
+<a href="#iscrizioni">Iscrizioni</a>
+</div>
+
+</div>
+</div>
+</div>
+
+<header>
+<div class="hero-box">
+<h1>Digital Automation Maker</h1>
+<p>Automazione, software e industria 4.0<br>per costruire il tuo futuro digitale.</p>
+</div>
+</header>
+
+<section id="corso">
+<div class="section-title">
+<h2>Cos’è il Digital Automation Maker</h2>
+<p>Il percorso che ti porta direttamente nel futuro.</p>
+</div>
+<div class="about">
+<div>
+<p>
+Il Digital Automation Maker è un corso post-diploma pensato per formare professionisti completi.
+Imparerai a lavorare su sistemi industriali reali, software avanzati, automazione, dati e AI.
+Collaborerai con aziende vere, su progetti concreti.
+</p>
+</div>
+<img src="https://itsmaker.it/wp-content/uploads/2023/09/ITSMAKER-TecnicoDiAutomazione-4.jpg">
+</div>
+</section>
+
+<section id="competenze">
+<div class="section-title">
+<h2>Cosa Imparerai</h2>
+<p>Competenze richieste dalle aziende.</p>
+</div>
+<div class="cards">
+<div class="card">
+<img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif">
+<h3>Automazione Industriale</h3>
+<p>PLC, robot, sensori e sistemi automatizzati.</p>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
+<h3>Software & AI</h3>
+<p>Cloud, machine learning, dashboard e dati.</p>
+</div>
+<div class="card">
+<img src="https://www.alcimed.com/wp-content/uploads/2025/03/industry_4_0_min-1.webp">
+<h3>Industria 4.0</h3>
+<p>IoT, cybersecurity, fabbriche smart.</p>
+</div>
+</div>
+</section>
+
+<section id="sbocchi" class="highlight">
+<h2>Opportunità di Lavoro</h2>
+<p>Tecnico, Digital Engineer, System Integrator, Innovation Consultant.<br>Oltre l’80% trova lavoro rapidamente.</p>
+</section>
+
+<section id="iscrizioni" class="cta">
+<h2>Costruisci il Tuo Futuro Oggi</h2>
+<p>Il momento giusto è adesso.</p>
+<a href="https://itsmaker.it/guida-pratica/">Invia Richiesta</a>
+</section>
+
+<footer>
+
+<div class="footer-left">
+<a href="https://itsmaker.it/">
+<img src="LogoITS.png">
+<div>© 2026 ITS Maker – Digital Automation Maker</div>
+</a>
+</div>
+
+<div class="footer-right">
+<div class="footer-text">
+© 2026 Maker Future – Da decidere
+<small>
+Davide Iacuzio, Mirko Cavecchi, Gabriele Bergamini,
+Gabriele Tedesco, Mattia Marchionni, Anas Amouiyah
+</small>
+</div>
+<div class="footer-logo">
+<img src="logo digital.png">
+</div>
+</div>
+
+</footer>
+
+<script>
+const navbar=document.getElementById("navbar");
+window.addEventListener("scroll",()=>{
+window.scrollY>80?navbar.classList.add("shrink"):navbar.classList.remove("shrink");
+});
+document.querySelectorAll('.nav-links a').forEach(link=>{
+link.addEventListener("click",e=>{
+e.preventDefault();
+const target=document.querySelector(link.getAttribute("href"));
+if(!target)return;
+const offset=navbar.offsetHeight+15;
+const pos=target.getBoundingClientRect().top+window.pageYOffset-offset;
+window.scrollTo({top:pos,behavior:"smooth"});
+});
+});
+</script>
+
+</body>
+</html>
