@@ -432,20 +432,29 @@ in ruoli tecnici altamente qualificati.
   <div class="testimonial">
     <div class="video-box">
 
-      <!-- VIDEO DESKTOP (orizzontale) -->
-      <div class="video-wrapper video-desktop">
-        <video controls preload="none" playsinline>
-          <source src="https://youtu.be/XoJTbnpK9cQ" type="video/mp4">
-        </video>
-      </div>
-
-      <!-- VIDEO MOBILE (verticale) -->
-      <div class="video-wrapper video-mobile">
-        <video controls preload="none" playsinline>
-          <source src="https://youtube.com/shorts/URD9SbYUwSU?feature=share" type="video/mp4">
-        </video>
-      </div>
-
+             <!-- VIDEO DESKTOP (orizzontale) -->
+        <div class="video-wrapper video-desktop">
+          <iframe 
+            width="560" height="315"
+            src="https://www.youtube.com/embed/XoJTbnpK9cQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        
+        <!-- VIDEO MOBILE (verticale) -->
+        <div class="video-wrapper video-mobile">
+          <iframe 
+            width="315" height="560"
+            src="https://www.youtube.com/embed/URD9SbYUwSU"
+            title="YouTube short video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
     </div>
 
     <div class="testo-testimonianze">
@@ -539,4 +548,5 @@ hamburger.addEventListener("click", () => {
 
 </body>
 </html>
+
 
