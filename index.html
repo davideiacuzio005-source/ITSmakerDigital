@@ -90,30 +90,25 @@ a:focus{outline:3px solid #00b3ff;outline-offset:3px}
   color: #ffffff;
   overflow: hidden;
 
-  background: linear-gradient(
-  135deg,
-  #6bbcff 0%,
-  #4da3ff 40%,
-  #3399ff 70%,
-  #1a8cff 100%
-);
-}
-
-
-
-
-.hero-overlay {
+ /* VIDEO HERO BACKGROUND */
+.hero-video {
   position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* riempie tutto senza distorcere */
+  transform: translate(-50%, -50%);
+  z-index: 0; /* dietro overlay e testo */
 }
-
+.hero-overlay {
+  z-index: 1; /* sopra il video ma sotto il testo */
+}
 .hero-box {
   position: relative;
-  max-width: 900px;
-  padding: 50px;
+  z-index: 2; /* sopra tutto il resto */
 }
-
+    
 .hero h1 {
   font-size: 3.5em;
   margin-bottom: 20px;
@@ -265,7 +260,15 @@ footer{background:#0a0a0a;color:#fff;padding:35px 60px;display:flex;justify-cont
 </div>
 
 <header class="hero">
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="https://itsmaker.it/wp-content/uploads/2026/01/ITSMAKERACADEMY-PrayForThisHero.webm">
+  </video>
+
+  <!-- OVERLAY PER CONTRASTO -->
   <div class="hero-overlay"></div>
+
+  <!-- CONTENUTO TESTUALE -->
   <div class="hero-box">
     <h1>Digital Automation Maker</h1>
     <p>
