@@ -90,7 +90,24 @@ a:focus{outline:3px solid #00b3ff;outline-offset:3px}
   color: #ffffff;
   overflow: hidden;
 
-     
+ background: linear-gradient( 
+     135deg, 
+     #6bbcff 0%, 
+     #4da3ff 40%, 
+     #3399ff 70%, 
+     #1a8cff 100% 
+ ); 
+} 
+    .hero-overlay { 
+        position: absolute; 
+        inset: 0; 
+        background: rgba(0,0,0,0.45); 
+    } 
+    .hero-box { 
+        position: relative; 
+        max-width: 900px; 
+        padding: 50px; 
+    }    
 .hero h1 {
   font-size: 3.5em;
   margin-bottom: 20px;
@@ -241,6 +258,19 @@ footer{background:#0a0a0a;color:#fff;padding:35px 60px;display:flex;justify-cont
 </div>
 </div>
 
+    <header class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-box">
+    <h1>Digital Automation Maker</h1>
+    <p>
+      Diventa protagonista della trasformazione digitale industriale.<br>
+      Il Digital Automation Maker è un percorso biennale post-diploma altamente professionalizzante,
+      progettato in collaborazione con aziende leader del settore.
+      Unisce automazione, software e industria 4.0 per formare tecnici specializzati,
+      pronti ad entrare rapidamente nel mondo del lavoro.
+    </p>
+  </div>
+</header>
 
 <!-- SEZIONI (Corso, Competenze, Sbocchi, Testimonianze, CTA, Footer) rimangono uguali -->
 <!-- ...il tuo codice HTML continua qui senza cambiare ... -->
