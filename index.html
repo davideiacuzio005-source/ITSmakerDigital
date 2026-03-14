@@ -90,25 +90,7 @@ a:focus{outline:3px solid #00b3ff;outline-offset:3px}
   color: #ffffff;
   overflow: hidden;
 
- /* VIDEO HERO BACKGROUND */
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* riempie tutto senza distorcere */
-  transform: translate(-50%, -50%);
-  z-index: 0; /* dietro overlay e testo */
-}
-.hero-overlay {
-  z-index: 1; /* sopra il video ma sotto il testo */
-}
-.hero-box {
-  position: relative;
-  z-index: 2; /* sopra tutto il resto */
-}
-    
+     
 .hero h1 {
   font-size: 3.5em;
   margin-bottom: 20px;
@@ -258,28 +240,6 @@ footer{background:#0a0a0a;color:#fff;padding:35px 60px;display:flex;justify-cont
 </div>
 </div>
 </div>
-
-<header class="hero">
-  <!-- VIDEO BACKGROUND -->
-  <video autoplay muted loop playsinline class="hero-video">
-    <source src="https://itsmaker.it/wp-content/uploads/2026/01/ITSMAKERACADEMY-PrayForThisHero.webm">
-  </video>
-
-  <!-- OVERLAY PER CONTRASTO -->
-  <div class="hero-overlay"></div>
-
-  <!-- CONTENUTO TESTUALE -->
-  <div class="hero-box">
-    <h1>Digital Automation Maker</h1>
-    <p>
-      Diventa protagonista della trasformazione digitale industriale.<br>
-      Il Digital Automation Maker è un percorso biennale post-diploma altamente professionalizzante,
-      progettato in collaborazione con aziende leader del settore.
-      Unisce automazione, software e industria 4.0 per formare tecnici specializzati,
-      pronti ad entrare rapidamente nel mondo del lavoro.
-    </p>
-  </div>
-</header>
 
 
 <!-- SEZIONI (Corso, Competenze, Sbocchi, Testimonianze, CTA, Footer) rimangono uguali -->
